@@ -1,8 +1,3 @@
-controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (dah_Wizard.tileKindAt(TileDirection.Bottom, sprites.castle.tilePath2) || (dah_Wizard.tileKindAt(TileDirection.Bottom, sprites.castle.tilePath1) || dah_Wizard.tileKindAt(TileDirection.Bottom, sprites.castle.tilePath3))) {
-        dah_Wizard.setVelocity(0, -1000000)
-    }
-})
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     dah_Wizard.setScale(0.5, ScaleAnchor.Bottom)
 })
@@ -16,7 +11,7 @@ dah_Wizard = sprites.create(assets.image`dah Wizard`, SpriteKind.Player)
 tiles.placeOnTile(dah_Wizard, tiles.getTileLocation(2, 14))
 scene.cameraFollowSprite(dah_Wizard)
 forever(function () {
-    dah_Wizard.setVelocity(0, 100)
+    dah_Wizard.setVelocity(0, 50)
 })
 forever(function () {
     if (controller.left.isPressed()) {
@@ -38,5 +33,12 @@ forever(function () {
         }
     } else {
         effects.clearParticles(dah_Wizard)
+    }
+})
+forever(function () {
+    if (controller.up.isPressed()) {
+        if (dah_Wizard.tileKindAt(TileDirection.Bottom, sprites.castle.tilePath2) || (dah_Wizard.tileKindAt(TileDirection.Bottom, sprites.castle.tilePath1) || dah_Wizard.tileKindAt(TileDirection.Bottom, sprites.castle.tilePath3))) {
+            dah_Wizard.setVelocity(0, -2000)
+        }
     }
 })
