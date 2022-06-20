@@ -8,6 +8,9 @@ forever(function () {
         mySprite.y += -4
     }
     mySprite.setVelocity(0, 100)
+    if (controller.B.isPressed()) {
+        game.reset()
+    }
 })
 forever(function () {
     if (controller.right.isPressed()) {
@@ -35,12 +38,14 @@ forever(function () {
 })
 forever(function () {
     if (controller.A.isPressed()) {
-        if (true) {
-        	
+        if (mySprite.image <= assets.image`dah Wizard`) {
+            mySprite.setImage(assets.image`dah Wizard but red0`)
+            mySprite.startEffect(effects.warmRadial)
+        } else if (mySprite.image <= assets.image`dah Wizard but left`) {
+            mySprite.setImage(assets.image`dah Wizard but red but left`)
+            mySprite.startEffect(effects.warmRadial)
+        } else {
+            effects.clearParticles(mySprite)
         }
-        mySprite.startEffect(effects.warmRadial)
-        mySprite.setImage(assets.image`dah Wizard but red0`)
-    } else {
-        effects.clearParticles(mySprite)
     }
 })
