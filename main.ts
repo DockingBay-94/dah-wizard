@@ -1,12 +1,10 @@
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (dah_Wizard.tileKindAt(TileDirection.Bottom, sprites.castle.tilePath2)) {
-        dah_Wizard.setVelocity(0, 100)
-    }
-    if (dah_Wizard.tileKindAt(TileDirection.Bottom, sprites.castle.tilePath3)) {
-        dah_Wizard.setVelocity(0, 100)
-    }
-    if (dah_Wizard.tileKindAt(TileDirection.Bottom, sprites.castle.tilePath1)) {
-        dah_Wizard.setVelocity(0, 100)
+    if (dah_Wizard.tileKindAt(TileDirection.Bottom, sprites.castle.tilePath2) || (dah_Wizard.tileKindAt(TileDirection.Bottom, sprites.castle.tilePath1) || dah_Wizard.tileKindAt(TileDirection.Bottom, sprites.castle.tilePath3))) {
+        dah_Wizard.setVelocity(0, 50)
+    } else if (false) {
+        dah_Wizard.setVelocity(0, 50)
+    } else if (false) {
+        dah_Wizard.setVelocity(0, 50)
     }
 })
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
