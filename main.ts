@@ -1,51 +1,29 @@
 scene.setBackgroundImage(assets.image`sus sky`)
 tiles.setCurrentTilemap(tilemap`level1`)
-let mySprite = sprites.create(assets.image`dah Wizard`, SpriteKind.Player)
-mySprite.setPosition(30, 30)
-scene.cameraFollowSprite(mySprite)
-forever(function () {
-    if (controller.up.isPressed()) {
-        mySprite.y += -4
-    }
-    mySprite.setVelocity(0, 100)
-    if (controller.B.isPressed()) {
-        game.reset()
-    }
-})
-forever(function () {
-    if (controller.right.isPressed()) {
-        mySprite.x += 2
-        mySprite.setImage(assets.image`dah Wizard`)
-        if (controller.A.isPressed()) {
-            mySprite.startEffect(effects.warmRadial)
-            mySprite.setImage(assets.image`dah Wizard but red0`)
-        } else {
-            effects.clearParticles(mySprite)
-        }
-    }
-})
+let dah_Wizard = sprites.create(assets.image`dah Wizard`, SpriteKind.Player)
+dah_Wizard.setPosition(30, 30)
+scene.cameraFollowSprite(dah_Wizard)
 forever(function () {
     if (controller.left.isPressed()) {
-        mySprite.x += -2
-        mySprite.setImage(assets.image`dah Wizard but left`)
-        if (controller.A.isPressed()) {
-            mySprite.startEffect(effects.warmRadial)
-            mySprite.setImage(assets.image`dah Wizard but red but left`)
-        } else {
-            effects.clearParticles(mySprite)
-        }
+        dah_Wizard.x += -2
+        dah_Wizard.setImage(assets.image`dah Wizard but left`)
     }
+    if (controller.right.isPressed()) {
+        dah_Wizard.x += 2
+        dah_Wizard.setImage(assets.image`dah Wizard`)
+    }
+})
+forever(function () {
+    if (controller.up.isPressed()) {
+        dah_Wizard.y += -4
+    }
+    dah_Wizard.setVelocity(0, 100)
 })
 forever(function () {
     if (controller.A.isPressed()) {
-        if (mySprite.image <= assets.image`dah Wizard`) {
-            mySprite.setImage(assets.image`dah Wizard but red0`)
-            mySprite.startEffect(effects.warmRadial)
-        } else if (mySprite.image <= assets.image`dah Wizard but left`) {
-            mySprite.setImage(assets.image`dah Wizard but red but left`)
-            mySprite.startEffect(effects.warmRadial)
-        } else {
-            effects.clearParticles(mySprite)
-        }
+        dah_Wizard.startEffect(effects.warmRadial)
+        dah_Wizard.setImage(assets.image`dah Wizard but red0`)
+    } else {
+        effects.clearParticles(dah_Wizard)
     }
 })
