@@ -33,3 +33,14 @@ forever(function () {
         }
     }
 })
+forever(function () {
+    if (controller.A.isPressed()) {
+        if (true) {
+        	
+        }
+        mySprite.startEffect(effects.warmRadial)
+        mySprite.setImage(assets.image`dah Wizard but red0`)
+    } else {
+        effects.clearParticles(mySprite)
+    }
+})
