@@ -4,30 +4,30 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "sus sky"
     },
-    "image1": {
-        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAABlEWFmVmYAYGURYWZWZgBmZdFtZlZmAGBl0RFhVmYAAGXxHREAAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "dah Wizard"
-    },
     "image3": {
         "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/////AAAAAP////8AAADw/////w8AAPAv////DwAA8P////IPAADw////8g8AAPD/L//yDwAA8P////IPAADwL///8v8AAPD//////wAAAP////8PAAAAAP///wAAAAAAAAAAAAAAAAAAAAAAAA==",
         "mimeType": "image/x-mkcd-f4",
         "displayName": "bad guy"
     },
+    "image1": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAABlEWFmVmYAYGURYWZWZgBmZdFtZlZmAGBl0RFhVmYAAGXxHREAAAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "dah Wizard right"
+    },
     "image4": {
         "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAAAAAAGXxHREAAABgZdERYVZmAGZl0W1mVmYAYGURYWZWZgAAZRFhZlZmAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
         "mimeType": "image/x-mkcd-f4",
-        "displayName": "dah Wizard but left"
+        "displayName": "dah Wizard left"
     },
     "image2": {
         "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAACXxHREAAAAgJdERIVIiACIl0S0iUiIAICURISJSIgAAJREhIlIiAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
         "mimeType": "image/x-mkcd-f4",
-        "displayName": "dah Wizard but red but left"
+        "displayName": "dah Wizard red left"
     },
     "image5": {
         "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAlESEiUiIAICURISJSIgAiJdEtIlIiACAl0REhUiIAACXxHREAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
         "mimeType": "image/x-mkcd-f4",
-        "displayName": "dah Wizard but red"
+        "displayName": "dah Wizard red right"
     },
     "*": {
         "mimeType": "image/x-mkcd-f4",

@@ -7,7 +7,7 @@ controller.B.onEvent(ControllerButtonEvent.Released, function () {
 let dah_Wizard: Sprite = null
 scene.setBackgroundImage(assets.image`sus sky`)
 tiles.setCurrentTilemap(tilemap`level1`)
-dah_Wizard = sprites.create(assets.image`dah Wizard`, SpriteKind.Player)
+dah_Wizard = sprites.create(assets.image`dah Wizard right`, SpriteKind.Player)
 tiles.placeOnTile(dah_Wizard, tiles.getTileLocation(2, 14))
 scene.cameraFollowSprite(dah_Wizard)
 forever(function () {
@@ -16,20 +16,20 @@ forever(function () {
 forever(function () {
     if (controller.left.isPressed()) {
         dah_Wizard.x += -2
-        dah_Wizard.setImage(assets.image`dah Wizard but left`)
+        dah_Wizard.setImage(assets.image`dah Wizard left`)
     }
     if (controller.right.isPressed()) {
         dah_Wizard.x += 2
-        dah_Wizard.setImage(assets.image`dah Wizard`)
+        dah_Wizard.setImage(assets.image`dah Wizard right`)
     }
 })
 forever(function () {
     if (controller.A.isPressed()) {
         dah_Wizard.startEffect(effects.warmRadial)
-        if (dah_Wizard.image.equals(assets.image`dah Wizard`)) {
-            dah_Wizard.setImage(assets.image`dah Wizard but red`)
-        } else if (dah_Wizard.image.equals(assets.image`dah Wizard but left`)) {
-            dah_Wizard.setImage(assets.image`dah Wizard but red but left`)
+        if (dah_Wizard.image.equals(assets.image`dah Wizard right`)) {
+            dah_Wizard.setImage(assets.image`dah Wizard red right`)
+        } else if (dah_Wizard.image.equals(assets.image`dah Wizard left`)) {
+            dah_Wizard.setImage(assets.image`dah Wizard red left`)
         }
     } else {
         effects.clearParticles(dah_Wizard)
