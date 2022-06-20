@@ -22,7 +22,11 @@ forever(function () {
 forever(function () {
     if (controller.A.isPressed()) {
         dah_Wizard.startEffect(effects.warmRadial)
-        dah_Wizard.setImage(assets.image`dah Wizard but red0`)
+        if (dah_Wizard.equals(assets.image`dah Wizard`)) {
+            dah_Wizard.setImage(assets.image`dah Wizard but red`)
+        } else if (dah_Wizard.equals(assets.image`dah Wizard but left`)) {
+            dah_Wizard.setImage(assets.image`dah Wizard but red but left`)
+        }
     } else {
         effects.clearParticles(dah_Wizard)
     }

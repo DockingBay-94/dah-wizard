@@ -203,7 +203,7 @@ namespace myImages {
 . . . . . . . 2 2 2 2 . . . . . 
 `;
             case "image5":
-            case "dah Wizard but red0":return img`
+            case "dah Wizard but red":return img`
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 . . . . . . . 2 . . . . . . . . 
