@@ -3,14 +3,15 @@ tiles.setCurrentTilemap(tilemap`level1`)
 let dah_Wizard = sprites.create(assets.image`dah Wizard right`, SpriteKind.Player)
 tiles.placeOnTile(dah_Wizard, tiles.getTileLocation(2, 14))
 scene.cameraFollowSprite(dah_Wizard)
+let dah_score = textsprite.create("0", 1, 15)
 forever(function () {
     if (controller.up.isPressed()) {
         if (dah_Wizard.tileKindAt(TileDirection.Bottom, sprites.castle.tilePath2) || (dah_Wizard.tileKindAt(TileDirection.Bottom, sprites.castle.tilePath1) || dah_Wizard.tileKindAt(TileDirection.Bottom, sprites.castle.tilePath3))) {
-            dah_Wizard.setVelocity(0, -50)
-            pause(500)
+            dah_Wizard.setVelocity(0, -100)
+            pause(200)
         }
     } else {
-        dah_Wizard.setVelocity(0, 50)
+        dah_Wizard.setVelocity(0, 100)
     }
 })
 forever(function () {
