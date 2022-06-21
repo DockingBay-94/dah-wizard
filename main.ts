@@ -32,19 +32,25 @@ forever(function () {
     }
 })
 forever(function () {
-    dah_score.setPosition(scene.cameraProperty(CameraProperty.X) + 70, scene.cameraProperty(CameraProperty.Y) - 50)
+    dah_score.setPosition(scene.cameraProperty(CameraProperty.X), scene.cameraProperty(CameraProperty.Y) - 53)
 })
 forever(function () {
     if (controller.A.isPressed()) {
         dah_Wizard.startEffect(effects.warmRadial)
-        if (dah_Wizard.image.equals(assets.image`dah Wizard right`) || dah_Wizard.image.equals(assets.image`dah Wizard red right`)) {
+        if (dah_Wizard.image.equals(assets.image`dah Wizard right`)) {
             dah_Wizard.setImage(assets.image`dah Wizard red right`)
         }
-        if (dah_Wizard.image.equals(assets.image`dah Wizard left`) || dah_Wizard.image.equals(assets.image`dah Wizard red left`)) {
+        if (dah_Wizard.image.equals(assets.image`dah Wizard left`)) {
             dah_Wizard.setImage(assets.image`dah Wizard red left`)
         }
     } else {
         effects.clearParticles(dah_Wizard)
+        if (dah_Wizard.image.equals(assets.image`dah Wizard red left`)) {
+            dah_Wizard.setImage(assets.image`dah Wizard left`)
+        }
+        if (dah_Wizard.image.equals(assets.image`dah Wizard red right`)) {
+            dah_Wizard.setImage(assets.image`dah Wizard right`)
+        }
     }
 })
 forever(function () {
