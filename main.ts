@@ -2,24 +2,10 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     dah_Wizard.setScale(0.5, ScaleAnchor.Bottom)
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (dah_Wizard.image.equals(assets.image`dah Wizard right`) || false) {
-        dah_Wizard.startEffect(effects.warmRadial)
-        dah_Wizard.setImage(assets.image`dah Wizard red right`)
-    }
-    if (dah_Wizard.image.equals(assets.image`dah Wizard left`) || false) {
-        dah_Wizard.startEffect(effects.warmRadial)
-        dah_Wizard.setImage(assets.image`dah Wizard red left`)
-    }
+	
 })
 controller.A.onEvent(ControllerButtonEvent.Released, function () {
-    if (dah_Wizard.image.equals(assets.image`dah Wizard red right`)) {
-        dah_Wizard.setImage(assets.image`dah Wizard right`)
-        effects.clearParticles(dah_Wizard)
-    }
-    if (dah_Wizard.image.equals(assets.image`dah Wizard red left`)) {
-        dah_Wizard.setImage(assets.image`dah Wizard left`)
-        effects.clearParticles(dah_Wizard)
-    }
+	
 })
 controller.B.onEvent(ControllerButtonEvent.Released, function () {
     dah_Wizard.setScale(1, ScaleAnchor.Bottom)
@@ -51,5 +37,19 @@ forever(function () {
     }
 })
 forever(function () {
-	
+    if (controller.A.isPressed()) {
+        dah_Wizard.startEffect(effects.warmRadial)
+        if (dah_Wizard.image.equals(assets.image`dah Wizard right`)) {
+            dah_Wizard.setImage(assets.image`dah Wizard red right`)
+        } else {
+        	
+        }
+        if (dah_Wizard.image.equals(assets.image`dah Wizard left`)) {
+            dah_Wizard.setImage(assets.image`dah Wizard red left`)
+        } else {
+        	
+        }
+    } else {
+        effects.clearParticles(dah_Wizard)
+    }
 })
