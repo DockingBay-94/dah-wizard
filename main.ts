@@ -1,29 +1,16 @@
-controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    dah_Wizard.setScale(0.5, ScaleAnchor.Bottom)
-})
-controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-	
-})
-controller.A.onEvent(ControllerButtonEvent.Released, function () {
-	
-})
-controller.B.onEvent(ControllerButtonEvent.Released, function () {
-    dah_Wizard.setScale(1, ScaleAnchor.Bottom)
-})
-let dah_Wizard: Sprite = null
 scene.setBackgroundImage(assets.image`sus sky`)
 tiles.setCurrentTilemap(tilemap`level1`)
-dah_Wizard = sprites.create(assets.image`dah Wizard right`, SpriteKind.Player)
+let dah_Wizard = sprites.create(assets.image`dah Wizard right`, SpriteKind.Player)
 tiles.placeOnTile(dah_Wizard, tiles.getTileLocation(2, 14))
 scene.cameraFollowSprite(dah_Wizard)
 forever(function () {
-    dah_Wizard.setVelocity(0, 50)
-})
-forever(function () {
     if (controller.up.isPressed()) {
         if (dah_Wizard.tileKindAt(TileDirection.Bottom, sprites.castle.tilePath2) || (dah_Wizard.tileKindAt(TileDirection.Bottom, sprites.castle.tilePath1) || dah_Wizard.tileKindAt(TileDirection.Bottom, sprites.castle.tilePath3))) {
-            dah_Wizard.setVelocity(0, -200)
+            dah_Wizard.setVelocity(0, -50)
+            pause(500)
         }
+    } else {
+        dah_Wizard.setVelocity(0, 50)
     }
 })
 forever(function () {
@@ -37,17 +24,20 @@ forever(function () {
     }
 })
 forever(function () {
+    if (controller.B.isPressed()) {
+        dah_Wizard.setScale(2, ScaleAnchor.Bottom)
+    } else {
+        dah_Wizard.setScale(1, ScaleAnchor.Bottom)
+    }
+})
+forever(function () {
     if (controller.A.isPressed()) {
         dah_Wizard.startEffect(effects.warmRadial)
-        if (dah_Wizard.image.equals(assets.image`dah Wizard right`)) {
+        if (dah_Wizard.image.equals(assets.image`dah Wizard right`) || dah_Wizard.image.equals(assets.image`dah Wizard red right`)) {
             dah_Wizard.setImage(assets.image`dah Wizard red right`)
-        } else {
-        	
         }
-        if (dah_Wizard.image.equals(assets.image`dah Wizard left`)) {
+        if (dah_Wizard.image.equals(assets.image`dah Wizard left`) || dah_Wizard.image.equals(assets.image`dah Wizard red left`)) {
             dah_Wizard.setImage(assets.image`dah Wizard red left`)
-        } else {
-        	
         }
     } else {
         effects.clearParticles(dah_Wizard)
