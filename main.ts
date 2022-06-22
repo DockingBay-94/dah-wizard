@@ -8,6 +8,14 @@ function skinChange (initImg: Image, targetImg: Image) {
         da_Wizard.setImage(targetImg)
     }
 }
+function jumpAcc () {
+    pause(50)
+    da_Wizard.setVelocity(0, -200)
+    pause(50)
+    da_Wizard.setVelocity(0, -100)
+    pause(50)
+    da_Wizard.setVelocity(0, -50)
+}
 function placeBadGuy (x: number, y: number) {
     bad_guy = sprites.create(assets.image`bad guy`, SpriteKind.Enemy)
     bad_guy.follow(da_Wizard, 10)
@@ -70,39 +78,35 @@ let da_Wizard: Sprite = null
 let da_score_bord: TextSprite = null
 setLevel()
 setPlayer1()
-placeAllBadGuys()
 forever(function () {
     da_score_bord.setPosition(scene.cameraProperty(CameraProperty.X), scene.cameraProperty(CameraProperty.Y) - 53)
     da_score_bord.setText(convertToText(dah_score))
 })
 forever(function () {
     if (controller.up.isPressed() && (da_Wizard.tileKindAt(TileDirection.Bottom, assets.tile`Grass up`) || (da_Wizard.tileKindAt(TileDirection.Bottom, assets.tile`Grass left up`) || da_Wizard.tileKindAt(TileDirection.Bottom, assets.tile`Grass right up`)))) {
-        pause(100)
-        da_Wizard.setVelocity(0, -200)
-        pause(100)
+        jumpAcc()
     } else {
-        da_Wizard.setVelocity(0, 200)
+        da_Wizard.ay = 200
     }
-})
-forever(function () {
     if (controller.right.isPressed()) {
         movePlayer1(2, assets.image`Da Wizard right`)
     }
     if (controller.left.isPressed()) {
         movePlayer1(-2, assets.image`Da Wizard left`)
     }
-})
-forever(function () {
     if (controller.A.isPressed()) {
         fireBlast()
     } else {
         skinRevertToBlue()
     }
-})
-forever(function () {
     if (controller.B.isPressed()) {
         da_Wizard.setScale(2, ScaleAnchor.Bottom)
     } else {
         da_Wizard.setScale(1, ScaleAnchor.Bottom)
+    }
+})
+forever(function () {
+    if (da_Wizard.tileKindAt(TileDirection.Top, sprites.dungeon.collectibleInsignia)) {
+        game.over(true, effects.starField)
     }
 })
