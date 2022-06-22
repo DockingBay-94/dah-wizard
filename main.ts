@@ -3,23 +3,28 @@ function placeBadGuy (x: number, y: number) {
     bad_guy.follow(dah_Wizard, 10)
     tiles.placeOnTile(bad_guy, tiles.getTileLocation(x, y))
 }
-function blastFireDirection (initImg: Image, targetImg: Image, fireImg: Image, fireVel: number) {
+function fireBlastDirection (initImg: Image, targetImg: Image, fireImg: Image, fireVel: number) {
     if (dah_Wizard.image.equals(initImg)) {
         fire_blast = sprites.createProjectileFromSprite(fireImg, dah_Wizard, fireVel, 0)
         dah_Wizard.setImage(targetImg)
     }
 }
-function skinToBlue () {
-    if (dah_Wizard.image.equals(assets.image`dah Wizard red right`)) {
-        dah_Wizard.setImage(assets.image`dah Wizard right`)
-    }
-    if (dah_Wizard.image.equals(assets.image`dah Wizard red left`)) {
-        dah_Wizard.setImage(assets.image`dah Wizard left`)
+function fireBlast () {
+    fireBlastDirection(assets.image`dah Wizard right`, assets.image`dah Wizard red right`, assets.image`fire blast right`, 100)
+    fireBlastDirection(assets.image`dah Wizard left`, assets.image`dah Wizard red left`, assets.image`fire blast left`, -100)
+}
+function skinRevertToBlue () {
+    skinRevertAndDirection(assets.image`dah Wizard red right`, assets.image`dah Wizard right`)
+    skinRevertAndDirection(assets.image`dah Wizard red left`, assets.image`dah Wizard left`)
+}
+function skinRevertAndDirection (initImg: Image, targetImg: Image) {
+    if (dah_Wizard.image.equals(initImg)) {
+        dah_Wizard.setImage(targetImg)
     }
 }
-function fireBlast () {
-    blastFireDirection(assets.image`dah Wizard right`, assets.image`dah Wizard red right`, assets.image`fire blast right`, 100)
-    blastFireDirection(assets.image`dah Wizard left`, assets.image`dah Wizard red left`, assets.image`fire blast left`, -100)
+function move (num: number, myImage: Image) {
+    dah_Wizard.x += num
+    dah_Wizard.setImage(myImage)
 }
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
     otherSprite.destroy()
@@ -52,13 +57,11 @@ forever(function () {
     }
 })
 forever(function () {
-    if (controller.left.isPressed()) {
-        dah_Wizard.x += -2
-        dah_Wizard.setImage(assets.image`dah Wizard left`)
-    }
     if (controller.right.isPressed()) {
-        dah_Wizard.x += 2
-        dah_Wizard.setImage(assets.image`dah Wizard right`)
+        move(2, assets.image`dah Wizard right`)
+    }
+    if (controller.left.isPressed()) {
+        move(-2, assets.image`dah Wizard left`)
     }
 })
 forever(function () {
@@ -76,6 +79,6 @@ forever(function () {
     if (controller.A.isPressed()) {
         fireBlast()
     } else {
-        skinToBlue()
+        skinRevertToBlue()
     }
 })
