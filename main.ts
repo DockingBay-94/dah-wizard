@@ -69,7 +69,7 @@ function placeAllBadGuys () {
     placeBadGuy(34, 13)
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    game.reset()
+    game.over(false)
 })
 let dah_score = 0
 let fire_blast: Sprite = null
@@ -78,7 +78,9 @@ let da_Wizard: Sprite = null
 let da_score_bord: TextSprite = null
 setLevel()
 setPlayer1()
-placeAllBadGuys()
+forever(function () {
+	
+})
 forever(function () {
     da_score_bord.setPosition(scene.cameraProperty(CameraProperty.X), scene.cameraProperty(CameraProperty.Y) - 53)
     da_score_bord.setText(convertToText(dah_score))
