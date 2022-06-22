@@ -78,6 +78,7 @@ let da_Wizard: Sprite = null
 let da_score_bord: TextSprite = null
 setLevel()
 setPlayer1()
+placeAllBadGuys()
 forever(function () {
     da_score_bord.setPosition(scene.cameraProperty(CameraProperty.X), scene.cameraProperty(CameraProperty.Y) - 53)
     da_score_bord.setText(convertToText(dah_score))
