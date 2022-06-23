@@ -4,11 +4,6 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "sus sky"
     },
-    "image3": {
-        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/////AAAAAP////8AAADw/////w8AAPAv////DwAA8P////IPAADw////8g8AAPD/L//yDwAA8P////IPAADwL///8v8AAPD//////wAAAP////8PAAAAAP///wAAAAAAAAAAAAAAAAAAAAAAAA==",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "bad guy"
-    },
     "image6": {
         "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAFBRAAAAAAAAUFUAAAAAAABSVAIAAAAAAEJEAgAAAAAAQkQCAAAAAABCRAIAAAAAACAkAAAAAAAAICIAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAA==",
         "mimeType": "image/x-mkcd-f4",
@@ -38,6 +33,16 @@
         "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAlESEiUiIAICURISJSIgAiJdEtIlIiACAl0REhUiIAACXxHREAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
         "mimeType": "image/x-mkcd-f4",
         "displayName": "Da Wizard red right"
+    },
+    "image3": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/////AAAAAP////8AAADw/////w8AAPAv////DwAA8P////IPAADw////8g8AAPD/L//yDwAA8P////IPAADwL///8v8AAPD//////wAAAP////8PAAAAAP///wAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "bad guy stage1"
+    },
+    "image8": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiIiIiAAAAACIiIiIAAAAg/y8iIgIAACAvLyIiAgAAIP8vIi8CAAAgIiIiLwIAACAi8iIvAgAAIP8vIi8CAAAgLy8iLyIAACD/LyIiIgAAACIiIiICAAAAACIiIgAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "bad guy stage2"
     },
     "*": {
         "mimeType": "image/x-mkcd-f4",
