@@ -99,7 +99,7 @@ forever(function () {
 forever(function () {
     for (let attackingBadGuy of bad_guys) {
         if (attackingBadGuy.overlapsWith(da_Wizard)) {
-        	
+            game.reset()
         }
     }
 })
