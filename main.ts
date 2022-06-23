@@ -58,11 +58,11 @@ function placeAllBadGuys () {
     placeBadGuy(32, 13)
     placeBadGuy(33, 13)
     placeBadGuy(34, 13)
-    placeBadGuy(35, 12)
+    placeBadGuy(35, 13)
     placeBadGuy(36, 13)
-    placeBadGuy(37, 12)
+    placeBadGuy(37, 13)
     placeBadGuy(38, 13)
-    placeBadGuy(39, 12)
+    placeBadGuy(39, 13)
 }
 let da_score = 0
 let fire_blasts: Sprite[] = []
@@ -77,17 +77,18 @@ forever(function () {
     da_score_bord.setText(convertToText(da_score))
 })
 forever(function () {
-    for (let currentFireBlast of fire_blasts) {
-        for (let currentBadGuy of bad_guys) {
+    for (let currentBadGuy of bad_guys) {
+        for (let currentFireBlast of fire_blasts) {
             if (currentBadGuy.overlapsWith(currentFireBlast)) {
-                if (assets.image`bad guy stage1` <= currentBadGuy.image) {
-                    currentFireBlast.destroy()
+                if (currentBadGuy.image.equals(assets.image`bad guy stage1`)) {
                     skinChange(assets.image`bad guy stage1`, assets.image`bad guy stage2`, currentBadGuy)
+                    currentFireBlast.destroy()
+                    currentBadGuy.follow(da_Wizard, 30)
                     pause(500)
                 }
             }
             if (currentBadGuy.overlapsWith(currentFireBlast)) {
-                if (currentBadGuy.image <= assets.image`bad guy stage2`) {
+                if (currentBadGuy.image.equals(assets.image`bad guy stage2`)) {
                     currentBadGuy.destroy()
                     da_score += 10
                 }
