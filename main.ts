@@ -27,27 +27,7 @@ function setPlayer1 () {
     tiles.placeOnTile(da_Wizard, tiles.getTileLocation(2, 14))
     scene.cameraFollowSprite(da_Wizard)
 }
-function playerJump () {
-    pause(50)
-    da_Wizard.setVelocity(0, -200)
-    pause(50)
-    da_Wizard.setVelocity(0, -100)
-    pause(50)
-    da_Wizard.setVelocity(0, -50)
-}
-function movePlayer1 (num: number, myImage: Image) {
-    da_Wizard.x += num
-    da_Wizard.setImage(myImage)
-}
-function fireBlast () {
-    fireBlastDirection(assets.image`Da Wizard right`, assets.image`Da Wizard red right`, assets.image`fire blast right`, 100)
-    fireBlastDirection(assets.image`Da Wizard left`, assets.image`Da Wizard red left`, assets.image`fire blast left`, -100)
-}
-function skinRevertToBlue () {
-    skinChange(assets.image`Da Wizard red right`, assets.image`Da Wizard right`, da_Wizard)
-    skinChange(assets.image`Da Wizard red left`, assets.image`Da Wizard left`, da_Wizard)
-}
-function placeAllBadGuys () {
+function placeFirstBadGuys () {
     placeBadGuy(8, 14, 1)
     placeBadGuy(13, 12, 1)
     placeBadGuy(14, 14, 1)
@@ -65,6 +45,68 @@ function placeAllBadGuys () {
     placeBadGuy(37, 13, 1)
     placeBadGuy(38, 13, 1)
     placeBadGuy(39, 13, 1)
+}
+function playerJump () {
+    pause(50)
+    da_Wizard.setVelocity(0, -200)
+    pause(50)
+    da_Wizard.setVelocity(0, -100)
+    pause(50)
+    da_Wizard.setVelocity(0, -50)
+}
+function placeCasleEnemy () {
+    placeBadGuy(65, 16, 2)
+    placeBadGuy(71, 17, 2)
+    placeBadGuy(77, 16, 2)
+    placeBadGuy(81, 17, 2)
+    placeBadGuy(84, 16, 2)
+    placeBadGuy(65, 16, 2)
+    placeBadGuy(71, 17, 2)
+    placeBadGuy(77, 16, 2)
+    placeBadGuy(81, 17, 2)
+    placeBadGuy(84, 16, 2)
+    placeBadGuy(65, 16, 2)
+    placeBadGuy(71, 17, 2)
+    placeBadGuy(77, 16, 2)
+    placeBadGuy(81, 17, 2)
+    placeBadGuy(84, 16, 2)
+    placeBadGuy(65, 16, 2)
+    placeBadGuy(71, 17, 2)
+    placeBadGuy(77, 16, 2)
+    placeBadGuy(81, 17, 2)
+    placeBadGuy(84, 16, 2)
+    placeBadGuy(65, 16, 2)
+    placeBadGuy(71, 17, 2)
+    placeBadGuy(77, 16, 2)
+    placeBadGuy(81, 17, 2)
+    placeBadGuy(84, 16, 2)
+    placeBadGuy(65, 16, 2)
+    placeBadGuy(71, 17, 2)
+    placeBadGuy(77, 16, 2)
+    placeBadGuy(81, 17, 2)
+    placeBadGuy(84, 16, 2)
+    placeBadGuy(65, 16, 2)
+    placeBadGuy(71, 17, 2)
+    placeBadGuy(77, 16, 2)
+    placeBadGuy(81, 17, 2)
+    placeBadGuy(84, 16, 2)
+    placeBadGuy(65, 16, 2)
+    placeBadGuy(71, 17, 2)
+    placeBadGuy(77, 16, 2)
+    placeBadGuy(81, 17, 2)
+    placeBadGuy(84, 16, 2)
+}
+function movePlayer1 (num: number, myImage: Image) {
+    da_Wizard.x += num
+    da_Wizard.setImage(myImage)
+}
+function fireBlast () {
+    fireBlastDirection(assets.image`Da Wizard right`, assets.image`Da Wizard red right`, assets.image`fire blast right`, 100)
+    fireBlastDirection(assets.image`Da Wizard left`, assets.image`Da Wizard red left`, assets.image`fire blast left`, -100)
+}
+function skinRevertToBlue () {
+    skinChange(assets.image`Da Wizard red right`, assets.image`Da Wizard right`, da_Wizard)
+    skinChange(assets.image`Da Wizard red left`, assets.image`Da Wizard left`, da_Wizard)
 }
 let da_score = 0
 let da_Wizard: Sprite = null
@@ -131,10 +173,6 @@ forever(function () {
     if (da_Wizard.tileKindAt(TileDirection.Top, sprites.dungeon.collectibleInsignia)) {
         tiles.placeOnTile(da_Wizard, tiles.getTileLocation(55, 18))
         scene.setBackgroundImage(assets.image`castle`)
-        placeBadGuy(65, 16, 2)
-        placeBadGuy(71, 17, 2)
-        placeBadGuy(77, 16, 2)
-        placeBadGuy(81, 17, 2)
-        placeBadGuy(84, 16, 2)
+        placeCasleEnemy()
     }
 })
