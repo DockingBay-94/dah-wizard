@@ -76,7 +76,10 @@ fire_blasts = []
 badGuyState = []
 setLevel()
 setPlayer1()
-placeAllBadGuys()
+forever(function () {
+    da_score_bord.setPosition(scene.cameraProperty(CameraProperty.X), scene.cameraProperty(CameraProperty.Y) - 53)
+    da_score_bord.setText(convertToText(da_score))
+})
 forever(function () {
     for (let index = 0; index <= bad_guys_sprites.length - 1; index++) {
         for (let currentFireBlast of fire_blasts) {
@@ -97,13 +100,6 @@ forever(function () {
             }
         }
     }
-})
-forever(function () {
-	
-})
-forever(function () {
-    da_score_bord.setPosition(scene.cameraProperty(CameraProperty.X), scene.cameraProperty(CameraProperty.Y) - 53)
-    da_score_bord.setText(convertToText(da_score))
 })
 forever(function () {
     for (let attackingBadGuy of bad_guys_sprites) {
