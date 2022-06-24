@@ -1,7 +1,7 @@
 function setLevel () {
-    scene.setBackgroundImage(assets.image`sus sky`)
     tiles.setCurrentTilemap(tilemap`level1`)
     da_score_bord = textsprite.create("0", 15, 1)
+    scene.setBackgroundImage(assets.image`sus sky`)
 }
 function skinChange (initImg: Image, targetImg: Image, who: Sprite) {
     if (who.image.equals(initImg)) {
@@ -109,7 +109,7 @@ forever(function () {
     }
 })
 forever(function () {
-    if (controller.up.isPressed() && (da_Wizard.tileKindAt(TileDirection.Bottom, assets.tile`Grass up`) || (da_Wizard.tileKindAt(TileDirection.Bottom, assets.tile`Grass left up`) || da_Wizard.tileKindAt(TileDirection.Bottom, assets.tile`Grass right up`)))) {
+    if (controller.up.isPressed() && (da_Wizard.tileKindAt(TileDirection.Bottom, assets.tile`Grass up`) || (da_Wizard.tileKindAt(TileDirection.Bottom, assets.tile`Grass left up`) || (da_Wizard.tileKindAt(TileDirection.Bottom, assets.tile`Grass right up`) || da_Wizard.tileKindAt(TileDirection.Bottom, assets.tile`myTile`))))) {
         playerJump()
     } else {
         da_Wizard.ay = 200
@@ -128,6 +128,7 @@ forever(function () {
 })
 forever(function () {
     if (da_Wizard.tileKindAt(TileDirection.Top, sprites.dungeon.collectibleInsignia)) {
-        game.over(true, effects.starField)
+        tiles.placeOnTile(da_Wizard, tiles.getTileLocation(55, 14))
+        scene.setBackgroundImage(assets.image`castle`)
     }
 })
