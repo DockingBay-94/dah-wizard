@@ -9,6 +9,7 @@ function skinChange (initImg: Image, targetImg: Image, who: Sprite) {
     }
 }
 function placeBadGuy (x: number, y: number) {
+    let badGuyState: string[] = []
     bad_guys_sprites.push(sprites.create(assets.image`bad guy stage1`, SpriteKind.Enemy))
     badGuyState.push("normal")
     bad_guys_sprites[bad_guys_sprites.length - 1].follow(da_Wizard, 10)
@@ -16,8 +17,8 @@ function placeBadGuy (x: number, y: number) {
 }
 function fireBlastDirection (initImg: Image, targetImg: Image, fireImg: Image, fireVel: number) {
     if (da_Wizard.image.equals(initImg)) {
-        da_Wizard.setImage(targetImg)
         fire_blasts.push(sprites.createProjectileFromSprite(fireImg, da_Wizard, fireVel, 0))
+        da_Wizard.setImage(targetImg)
         pause(200)
     }
 }
@@ -68,7 +69,6 @@ function placeAllBadGuys () {
 let da_score = 0
 let fire_blasts: Sprite[] = []
 let da_Wizard: Sprite = null
-let badGuyState: string[] = []
 let bad_guys_sprites: Sprite[] = []
 let da_score_bord: TextSprite = null
 setLevel()
@@ -79,20 +79,22 @@ forever(function () {
     da_score_bord.setText(convertToText(da_score))
 })
 forever(function () {
-    for (let currentFireBlast of fire_blasts) {
-        for (let index = 0; index <= bad_guys_sprites.length; index++) {
-            if (bad_guys_sprites[index].overlapsWith(currentFireBlast)) {
-                if (badGuyState[index] == "normal") {
-                    let list: string[] = []
+	
+})
+forever(function () {
+    for (let currentBadGuy of bad_guys_sprites) {
+        for (let currentFireBlast of fire_blasts) {
+            if (currentBadGuy.overlapsWith(currentFireBlast)) {
+                if (currentBadGuy.image.equals(assets.image`bad guy stage1`)) {
                     currentFireBlast.destroy()
-                    bad_guys_sprites[index].follow(da_Wizard, 30)
-                    list[index] = "Red"
+                    currentBadGuy.follow(da_Wizard, 30)
+                    skinChange(assets.image`bad guy stage1`, assets.image`bad guy stage2`, currentBadGuy)
                     pause(500)
                 }
             }
-            if (bad_guys_sprites[index].overlapsWith(currentFireBlast)) {
-                if (badGuyState[index] == "Red") {
-                    bad_guys_sprites[index].destroy()
+            if (currentBadGuy.overlapsWith(currentFireBlast)) {
+                if (currentBadGuy.image.equals(assets.image`bad guy stage2`)) {
+                    currentBadGuy.destroy()
                     da_score += 10
                 }
             }
