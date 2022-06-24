@@ -19,6 +19,7 @@ function fireBlastDirection (initImg: Image, targetImg: Image, fireImg: Image, f
     if (da_Wizard.image.equals(initImg)) {
         fire_blasts.push(sprites.createProjectileFromSprite(fireImg, da_Wizard, fireVel, 0))
         da_Wizard.setImage(targetImg)
+        music.zapped.playUntilDone()
         pause(200)
     }
 }
@@ -133,12 +134,14 @@ forever(function () {
                     bad_guys_sprites[index].follow(da_Wizard, 30)
                     badGuyState[index] = "Red"
                     skinChange(assets.image`bad guy stage1`, assets.image`bad guy stage2`, bad_guys_sprites[index])
+                    music.smallCrash.playUntilDone()
                 }
             }
             if (bad_guys_sprites[index].overlapsWith(currentFireBlast)) {
                 if (badGuyState[index] == "Red") {
                     bad_guys_sprites[index].destroy()
                     da_score += 10
+                    music.bigCrash.playUntilDone()
                 }
             }
         }
@@ -152,7 +155,7 @@ forever(function () {
     }
 })
 forever(function () {
-    if (controller.up.isPressed() && (da_Wizard.tileKindAt(TileDirection.Bottom, assets.tile`Grass up`) || (da_Wizard.tileKindAt(TileDirection.Bottom, assets.tile`Grass left up`) || (da_Wizard.tileKindAt(TileDirection.Bottom, assets.tile`Grass right up`) || da_Wizard.tileKindAt(TileDirection.Bottom, assets.tile`myTile`))))) {
+    if (controller.up.isPressed() && (da_Wizard.tileKindAt(TileDirection.Bottom, assets.tile`Grass up`) || (da_Wizard.tileKindAt(TileDirection.Bottom, assets.tile`Grass left up`) || (da_Wizard.tileKindAt(TileDirection.Bottom, assets.tile`Grass right up`) || (da_Wizard.tileKindAt(TileDirection.Bottom, assets.tile`myTile`) || da_Wizard.tileKindAt(TileDirection.Bottom, assets.tile`Piller3`)))))) {
         playerJump()
     } else {
         da_Wizard.ay = 200
@@ -174,10 +177,11 @@ forever(function () {
         tiles.placeOnTile(da_Wizard, tiles.getTileLocation(55, 18))
         scene.setBackgroundImage(assets.image`castle`)
         placeCasleEnemys()
+        music.sonar.playUntilDone()
     }
 })
 forever(function () {
-    if (da_Wizard.tileKindAt(TileDirection.Top, assets.tile`myTile3`)) {
-        game.over(true)
+    if (da_Wizard.tileKindAt(TileDirection.Center, assets.tile`myTile3`) && da_score == 570) {
+        game.over(true, effects.confetti)
     }
 })
