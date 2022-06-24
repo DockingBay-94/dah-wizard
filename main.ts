@@ -121,10 +121,6 @@ setLevel()
 setPlayer1()
 placeFirstGhosts()
 forever(function () {
-    da_score_bord.setPosition(scene.cameraProperty(CameraProperty.X), scene.cameraProperty(CameraProperty.Y) - 53)
-    da_score_bord.setText(convertToText(da_score))
-})
-forever(function () {
     for (let index = 0; index <= evil_ghost_sprites.length - 1; index++) {
         for (let currentFireBlast of fire_blasts) {
             if (evil_ghost_sprites[index].overlapsWith(currentFireBlast)) {
@@ -147,10 +143,33 @@ forever(function () {
     }
 })
 forever(function () {
+    da_score_bord.setPosition(scene.cameraProperty(CameraProperty.X), scene.cameraProperty(CameraProperty.Y) - 53)
+    da_score_bord.setText(convertToText(da_score))
+})
+forever(function () {
+    if (da_Wizard.tileKindAt(TileDirection.Top, sprites.dungeon.collectibleInsignia)) {
+        tiles.placeOnTile(da_Wizard, tiles.getTileLocation(55, 18))
+        scene.setBackgroundImage(assets.image`castle`)
+        placeCasleEnemys()
+        music.sonar.playUntilDone()
+    }
+})
+forever(function () {
+    if (da_Wizard.tileKindAt(TileDirection.Center, assets.tile`myTile3`) && da_score >= 570) {
+        game.over(true, effects.confetti)
+    }
+})
+forever(function () {
     for (let attackingGhost of evil_ghost_sprites) {
         if (attackingGhost.overlapsWith(da_Wizard)) {
-        	
+            game.reset()
         }
+    }
+})
+forever(function () {
+    if (da_Wizard.tileKindAt(TileDirection.Center, assets.tile`myTile3`) && da_score < 570) {
+        pause(1000)
+        game.splash("you must defeat all ghosts first")
     }
 })
 forever(function () {
@@ -169,24 +188,5 @@ forever(function () {
         fireBlast()
     } else {
         skinRevertToBlue()
-    }
-})
-forever(function () {
-    if (da_Wizard.tileKindAt(TileDirection.Top, sprites.dungeon.collectibleInsignia)) {
-        tiles.placeOnTile(da_Wizard, tiles.getTileLocation(55, 18))
-        scene.setBackgroundImage(assets.image`castle`)
-        placeCasleEnemys()
-        music.sonar.playUntilDone()
-    }
-})
-forever(function () {
-    if (da_Wizard.tileKindAt(TileDirection.Center, assets.tile`myTile3`) && da_score < 570) {
-        pause(1000)
-        game.splash("you must defeat all ghosts first")
-    }
-})
-forever(function () {
-    if (da_Wizard.tileKindAt(TileDirection.Center, assets.tile`myTile3`) && da_score >= 570) {
-        game.over(true, effects.confetti)
     }
 })
