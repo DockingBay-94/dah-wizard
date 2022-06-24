@@ -134,6 +134,7 @@ forever(function () {
             }
             if (evil_ghost_sprites[index].overlapsWith(currentFireBlast)) {
                 if (evilGhostState[index] == "Red") {
+                    currentFireBlast.destroy()
                     evil_ghost_sprites[index].destroy()
                     da_score += 10
                     music.bigCrash.playUntilDone()
