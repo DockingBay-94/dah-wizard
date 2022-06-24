@@ -8,19 +8,11 @@ function skinChange (initImg: Image, targetImg: Image, who: Sprite) {
         who.setImage(targetImg)
     }
 }
-function placeBadGuy (x: number, y: number, size: number) {
-    bad_guys_sprites.push(sprites.create(assets.image`bad guy stage1`, SpriteKind.Enemy))
-    badGuyState.push("normal")
-    bad_guys_sprites[bad_guys_sprites.length - 1].follow(da_Wizard, 10)
-    tiles.placeOnTile(bad_guys_sprites[bad_guys_sprites.length - 1], tiles.getTileLocation(x, y))
-    bad_guys_sprites[bad_guys_sprites.length - 1].setScale(size, ScaleAnchor.Middle)
-}
 function fireBlastDirection (initImg: Image, targetImg: Image, fireImg: Image, fireVel: number) {
     if (da_Wizard.image.equals(initImg)) {
         fire_blasts.push(sprites.createProjectileFromSprite(fireImg, da_Wizard, fireVel, 0))
         da_Wizard.setImage(targetImg)
         music.zapped.playUntilDone()
-        pause(200)
     }
 }
 function setPlayer1 () {
@@ -28,24 +20,31 @@ function setPlayer1 () {
     tiles.placeOnTile(da_Wizard, tiles.getTileLocation(2, 14))
     scene.cameraFollowSprite(da_Wizard)
 }
-function placeFirstBadGuys () {
-    placeBadGuy(8, 14, 1)
-    placeBadGuy(13, 12, 1)
-    placeBadGuy(14, 14, 1)
-    placeBadGuy(17, 11, 1)
-    placeBadGuy(21, 11, 1)
-    placeBadGuy(23, 12, 1)
-    placeBadGuy(27, 15, 1)
-    placeBadGuy(30, 13, 1)
-    placeBadGuy(31, 13, 1)
-    placeBadGuy(32, 13, 1)
-    placeBadGuy(33, 13, 1)
-    placeBadGuy(34, 13, 1)
-    placeBadGuy(35, 13, 1)
-    placeBadGuy(36, 13, 1)
-    placeBadGuy(37, 13, 1)
-    placeBadGuy(38, 13, 1)
-    placeBadGuy(39, 13, 1)
+function placeGhost (x: number, y: number, size: number) {
+    evil_ghost_sprites.push(sprites.create(assets.image`evil ghost stage1`, SpriteKind.Enemy))
+    evilGhostState.push("normal")
+    evil_ghost_sprites[evil_ghost_sprites.length - 1].follow(da_Wizard, 10)
+    tiles.placeOnTile(evil_ghost_sprites[evil_ghost_sprites.length - 1], tiles.getTileLocation(x, y))
+    evil_ghost_sprites[evil_ghost_sprites.length - 1].setScale(size, ScaleAnchor.Middle)
+}
+function placeFirstGhosts () {
+    placeGhost(8, 14, 1)
+    placeGhost(13, 12, 1)
+    placeGhost(14, 14, 1)
+    placeGhost(17, 11, 1)
+    placeGhost(21, 11, 1)
+    placeGhost(23, 12, 1)
+    placeGhost(27, 15, 1)
+    placeGhost(30, 13, 1)
+    placeGhost(31, 13, 1)
+    placeGhost(32, 13, 1)
+    placeGhost(33, 13, 1)
+    placeGhost(34, 13, 1)
+    placeGhost(35, 13, 1)
+    placeGhost(36, 13, 1)
+    placeGhost(37, 13, 1)
+    placeGhost(38, 13, 1)
+    placeGhost(39, 13, 1)
 }
 function playerJump () {
     pause(50)
@@ -68,78 +67,78 @@ function skinRevertToBlue () {
     skinChange(assets.image`Da Wizard red left`, assets.image`Da Wizard left`, da_Wizard)
 }
 function placeCasleEnemys () {
-    placeBadGuy(65, 16, 2)
-    placeBadGuy(71, 17, 2)
-    placeBadGuy(77, 16, 2)
-    placeBadGuy(81, 17, 2)
-    placeBadGuy(84, 16, 2)
-    placeBadGuy(65, 16, 2)
-    placeBadGuy(71, 17, 2)
-    placeBadGuy(77, 16, 2)
-    placeBadGuy(81, 17, 2)
-    placeBadGuy(84, 16, 2)
-    placeBadGuy(65, 16, 2)
-    placeBadGuy(71, 17, 2)
-    placeBadGuy(77, 16, 2)
-    placeBadGuy(81, 17, 2)
-    placeBadGuy(84, 16, 2)
-    placeBadGuy(65, 16, 2)
-    placeBadGuy(71, 17, 2)
-    placeBadGuy(77, 16, 2)
-    placeBadGuy(81, 17, 2)
-    placeBadGuy(84, 16, 2)
-    placeBadGuy(65, 16, 2)
-    placeBadGuy(71, 17, 2)
-    placeBadGuy(77, 16, 2)
-    placeBadGuy(81, 17, 2)
-    placeBadGuy(84, 16, 2)
-    placeBadGuy(65, 16, 2)
-    placeBadGuy(71, 17, 2)
-    placeBadGuy(77, 16, 2)
-    placeBadGuy(81, 17, 2)
-    placeBadGuy(84, 16, 2)
-    placeBadGuy(65, 16, 2)
-    placeBadGuy(71, 17, 2)
-    placeBadGuy(77, 16, 2)
-    placeBadGuy(81, 17, 2)
-    placeBadGuy(84, 16, 2)
-    placeBadGuy(65, 16, 2)
-    placeBadGuy(71, 17, 2)
-    placeBadGuy(77, 16, 2)
-    placeBadGuy(81, 17, 2)
-    placeBadGuy(84, 16, 2)
+    placeGhost(65, 16, 2)
+    placeGhost(71, 17, 2)
+    placeGhost(77, 16, 2)
+    placeGhost(81, 17, 2)
+    placeGhost(84, 16, 2)
+    placeGhost(65, 16, 2)
+    placeGhost(71, 17, 2)
+    placeGhost(77, 16, 2)
+    placeGhost(81, 17, 2)
+    placeGhost(84, 16, 2)
+    placeGhost(65, 16, 2)
+    placeGhost(71, 17, 2)
+    placeGhost(77, 16, 2)
+    placeGhost(81, 17, 2)
+    placeGhost(84, 16, 2)
+    placeGhost(65, 16, 2)
+    placeGhost(71, 17, 2)
+    placeGhost(77, 16, 2)
+    placeGhost(81, 17, 2)
+    placeGhost(84, 16, 2)
+    placeGhost(65, 16, 2)
+    placeGhost(71, 17, 2)
+    placeGhost(77, 16, 2)
+    placeGhost(81, 17, 2)
+    placeGhost(84, 16, 2)
+    placeGhost(65, 16, 2)
+    placeGhost(71, 17, 2)
+    placeGhost(77, 16, 2)
+    placeGhost(81, 17, 2)
+    placeGhost(84, 16, 2)
+    placeGhost(65, 16, 2)
+    placeGhost(71, 17, 2)
+    placeGhost(77, 16, 2)
+    placeGhost(81, 17, 2)
+    placeGhost(84, 16, 2)
+    placeGhost(65, 16, 2)
+    placeGhost(71, 17, 2)
+    placeGhost(77, 16, 2)
+    placeGhost(81, 17, 2)
+    placeGhost(84, 16, 2)
 }
 let da_score = 0
 let da_Wizard: Sprite = null
 let da_score_bord: TextSprite = null
-let badGuyState: string[] = []
+let evilGhostState: string[] = []
 let fire_blasts: Sprite[] = []
-let bad_guys_sprites: Sprite[] = []
-bad_guys_sprites = []
+let evil_ghost_sprites: Sprite[] = []
+evil_ghost_sprites = []
 fire_blasts = []
-badGuyState = []
+evilGhostState = []
 setLevel()
 setPlayer1()
-placeFirstBadGuys()
+placeFirstGhosts()
 forever(function () {
     da_score_bord.setPosition(scene.cameraProperty(CameraProperty.X), scene.cameraProperty(CameraProperty.Y) - 53)
     da_score_bord.setText(convertToText(da_score))
 })
 forever(function () {
-    for (let index = 0; index <= bad_guys_sprites.length - 1; index++) {
+    for (let index = 0; index <= evil_ghost_sprites.length - 1; index++) {
         for (let currentFireBlast of fire_blasts) {
-            if (bad_guys_sprites[index].overlapsWith(currentFireBlast)) {
-                if (badGuyState[index] == "normal") {
+            if (evil_ghost_sprites[index].overlapsWith(currentFireBlast)) {
+                if (evilGhostState[index] == "normal") {
                     currentFireBlast.destroy()
-                    bad_guys_sprites[index].follow(da_Wizard, 30)
-                    badGuyState[index] = "Red"
-                    skinChange(assets.image`bad guy stage1`, assets.image`bad guy stage2`, bad_guys_sprites[index])
+                    evil_ghost_sprites[index].follow(da_Wizard, 30)
+                    evilGhostState[index] = "Red"
+                    skinChange(assets.image`evil ghost stage1`, assets.image`evil ghost stage2`, evil_ghost_sprites[index])
                     music.smallCrash.playUntilDone()
                 }
             }
-            if (bad_guys_sprites[index].overlapsWith(currentFireBlast)) {
-                if (badGuyState[index] == "Red") {
-                    bad_guys_sprites[index].destroy()
+            if (evil_ghost_sprites[index].overlapsWith(currentFireBlast)) {
+                if (evilGhostState[index] == "Red") {
+                    evil_ghost_sprites[index].destroy()
                     da_score += 10
                     music.bigCrash.playUntilDone()
                 }
@@ -148,9 +147,9 @@ forever(function () {
     }
 })
 forever(function () {
-    for (let attackingBadGuy of bad_guys_sprites) {
-        if (attackingBadGuy.overlapsWith(da_Wizard)) {
-            game.reset()
+    for (let attackingGhost of evil_ghost_sprites) {
+        if (attackingGhost.overlapsWith(da_Wizard)) {
+        	
         }
     }
 })
@@ -181,7 +180,13 @@ forever(function () {
     }
 })
 forever(function () {
-    if (da_Wizard.tileKindAt(TileDirection.Center, assets.tile`myTile3`) && da_score == 570) {
+    if (da_Wizard.tileKindAt(TileDirection.Center, assets.tile`myTile3`) && da_score < 570) {
+        pause(1000)
+        game.splash("you must defeat all ghosts first")
+    }
+})
+forever(function () {
+    if (da_Wizard.tileKindAt(TileDirection.Center, assets.tile`myTile3`) && da_score >= 570) {
         game.over(true, effects.confetti)
     }
 })

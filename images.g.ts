@@ -240,44 +240,6 @@ namespace myImages {
 . . . . . . . 2 2 2 2 . . . . . 
 . . . . . . . 2 2 2 2 . . . . . 
 `;
-            case "image8":
-            case "bad guy stage2":return img`
-. . . . . . . . . . . . . . . . 
-. . . . . 2 2 2 2 2 2 . . . . . 
-. . . 2 2 2 2 2 2 2 2 2 2 . . . 
-. . . 2 2 2 2 2 2 2 2 2 2 . . . 
-. . 2 2 f f f 2 2 f f f 2 . . . 
-. . 2 2 f 2 f 2 2 f 2 f 2 2 . . 
-. . 2 2 f f f 2 2 f f f 2 2 . . 
-. . 2 2 2 2 2 2 2 2 2 2 2 2 . . 
-. . 2 2 2 2 2 2 2 2 2 2 2 2 . . 
-. . 2 2 2 2 2 2 2 2 2 2 2 2 . . 
-. . 2 2 f f f f f f f f 2 2 . . 
-. . 2 2 2 2 2 2 2 2 2 2 2 2 . . 
-. . 2 2 2 2 2 2 2 2 2 2 2 2 . . 
-. . 2 2 2 2 2 2 2 2 2 2 2 2 . . 
-. . 2 2 2 . . 2 2 . . 2 2 2 . . 
-. . . 2 . . . . . . . . 2 . . . 
-`;
-            case "image3":
-            case "bad guy stage1":return img`
-. . . . . . . . . . . . . . . . 
-. . . . . f f f f f f . . . . . 
-. . . f f f f f f f f f f . . . 
-. . . f f f f f f f f f f . . . 
-. . f f f f f f f f f f f f . . 
-. . f f f 2 f f f f 2 f f f . . 
-. . f f f f f f f f f f f f . . 
-. . f f f f f f f f f f f f . . 
-. . f f f f f f f f f f f f . . 
-. . f f 2 2 2 2 2 2 2 2 f f . . 
-. . f f f f f f f f f f f f . . 
-. . f f f f f f f f f f f f . . 
-. . f f f f f f f f f f f f . . 
-. . f f f f f f f f f f f f . . 
-. . f f f . . f f . . f f f . . 
-. . . f . . . . . . . . f . . . 
-`;
             case "image9":
             case "castle":return img`
 bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
@@ -400,6 +362,44 @@ bccccb888ff888bccccbbccccb888ff888bccccbbccccb888ff888bccccbbccccb888ff888bccccb
 bccccbbbbbbbbbbccccbbccccbbbbbbbbbbccccbbccccbbbbbbbbbbccccbbccccbbbbbbbbbbccccbbccccbbbbbbbbbbccccbbccccbbbbbbbbbbccccbbccccbbbbbbbbbbccccbbccccbbbbbbbbbbccccb
 bccccddddddddddccccbbccccddddddddddccccbbccccddddddddddccccbbccccddddddddddccccbbccccddddddddddccccbbccccddddddddddccccbbccccddddddddddccccbbccccddddddddddccccb
 bccccccccccccccccccbbccccccccccccccccccbbccccccccccccccccccbbccccccccccccccccccbbccccccccccccccccccbbccccccccccccccccccbbccccccccccccccccccbbccccccccccccccccccb
+`;
+            case "image3":
+            case "evil ghost stage1":return img`
+. . . . . . . . . . . . . . . . 
+. . . . . f f f f f f . . . . . 
+. . . f f f f f f f f f f . . . 
+. . . f f f f f f f f f f . . . 
+. . f f f f f f f f f f f f . . 
+. . f f f 2 f f f f 2 f f f . . 
+. . f f f f f f f f f f f f . . 
+. . f f f f f f f f f f f f . . 
+. . f f f f f f f f f f f f . . 
+. . f f 2 2 2 2 2 2 2 2 f f . . 
+. . f f f f f f f f f f f f . . 
+. . f f f f f f f f f f f f . . 
+. . f f f f f f f f f f f f . . 
+. . f f f f f f f f f f f f . . 
+. . f f f . . f f . . f f f . . 
+. . . f . . . . . . . . f . . . 
+`;
+            case "image8":
+            case "evil ghost stage2":return img`
+. . . . . . . . . . . . . . . . 
+. . . . . 2 2 2 2 2 2 . . . . . 
+. . . 2 2 2 2 2 2 2 2 2 2 . . . 
+. . . 2 2 2 2 2 2 2 2 2 2 . . . 
+. . 2 2 f f f 2 2 f f f 2 . . . 
+. . 2 2 f 2 f 2 2 f 2 f 2 2 . . 
+. . 2 2 f f f 2 2 f f f 2 2 . . 
+. . 2 2 2 2 2 2 2 2 2 2 2 2 . . 
+. . 2 2 2 2 2 2 2 2 2 2 2 2 . . 
+. . 2 2 2 2 2 2 2 2 2 2 2 2 . . 
+. . 2 2 f f f f f f f f 2 2 . . 
+. . 2 2 2 2 2 2 2 2 2 2 2 2 . . 
+. . 2 2 2 2 2 2 2 2 2 2 2 2 . . 
+. . 2 2 2 2 2 2 2 2 2 2 2 2 . . 
+. . 2 2 2 . . 2 2 . . 2 2 2 . . 
+. . . 2 . . . . . . . . 2 . . . 
 `;
         }
         return null;
