@@ -24,25 +24,25 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "Da Wizard left"
     },
-    "image2": {
-        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAACXxHREAAAAgJdERIVIiACIl0S0iUiIAICURISJSIgAAJREhIlIiAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "Da Wizard red left"
-    },
-    "image5": {
-        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAlESEiUiIAICURISJSIgAiJdEtIlIiACAl0REhUiIAACXxHREAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "Da Wizard red right"
-    },
     "image3": {
-        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/////AAAAAP////8AAADw/////w8AAPAv////DwAA8P////IPAADw////8g8AAPD/L//yDwAA8P////IPAADwL///8v8AAPD//////wAAAP////8PAAAAAP///wAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//////w8A//////////D///8v//8P8P/y/y///wDw////L///APD///8v//8P8P///y///w/w////L///APD/8v8v//8A8P///y///w8A/////////wAA//////8PAAAAAAAAAAAAAAAAAAAAAA==",
         "mimeType": "image/x-mkcd-f4",
         "displayName": "bad guy stage1"
     },
     "image8": {
-        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiIiIiAAAAACIiIiIAAAAg/y8iIgIAACAvLyIiAgAAIP8vIi8CAAAgIiIiLwIAACAi8iIvAgAAIP8vIi8CAAAgLy8iLyIAACD/LyIiIgAAACIiIiICAAAAACIiIgAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiIiIiIgIAICIiIiIiIgAi/y8iLyICACIvLyIvIgAgIv8vIi8iACAiIiIiLyIiICIiIiIvIiIgIv8vIi8iAAAiLy8iLyIAACL/LyIvIgIAICIiIiIiIgAAIiIiIiICAAAAAAAAAAAAAAAAAAAAAA==",
         "mimeType": "image/x-mkcd-f4",
         "displayName": "bad guy stage2"
+    },
+    "image5": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAlESEiUiIAICURISJSIgAiJdEtIlIiACAl0REhUiIAACVBHREAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Da Wizard red right"
+    },
+    "image2": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAACVBHREAAAAgJdERIVIiACIl0S0iUiIAICURISJSIgAAJREhIlIiAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Da Wizard red left"
     },
     "*": {
         "mimeType": "image/x-mkcd-f4",

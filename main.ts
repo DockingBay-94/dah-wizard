@@ -9,7 +9,6 @@ function skinChange (initImg: Image, targetImg: Image, who: Sprite) {
     }
 }
 function placeBadGuy (x: number, y: number) {
-    let badGuyState: string[] = []
     bad_guys_sprites.push(sprites.create(assets.image`bad guy stage1`, SpriteKind.Enemy))
     badGuyState.push("normal")
     bad_guys_sprites[bad_guys_sprites.length - 1].follow(da_Wizard, 10)
@@ -67,39 +66,44 @@ function placeAllBadGuys () {
     placeBadGuy(39, 13)
 }
 let da_score = 0
-let fire_blasts: Sprite[] = []
 let da_Wizard: Sprite = null
-let bad_guys_sprites: Sprite[] = []
 let da_score_bord: TextSprite = null
+let badGuyState: string[] = []
+let fire_blasts: Sprite[] = []
+let bad_guys_sprites: Sprite[] = []
+bad_guys_sprites = []
+fire_blasts = []
+badGuyState = []
 setLevel()
 setPlayer1()
 placeAllBadGuys()
 forever(function () {
-    da_score_bord.setPosition(scene.cameraProperty(CameraProperty.X), scene.cameraProperty(CameraProperty.Y) - 53)
-    da_score_bord.setText(convertToText(da_score))
-})
-forever(function () {
-	
-})
-forever(function () {
-    for (let currentBadGuy of bad_guys_sprites) {
+    for (let index = 0; index <= bad_guys_sprites.length - 1; index++) {
         for (let currentFireBlast of fire_blasts) {
-            if (currentBadGuy.overlapsWith(currentFireBlast)) {
-                if (currentBadGuy.image.equals(assets.image`bad guy stage1`)) {
+            if (bad_guys_sprites[index].overlapsWith(currentFireBlast)) {
+                if (badGuyState[index] == "normal") {
                     currentFireBlast.destroy()
-                    currentBadGuy.follow(da_Wizard, 30)
-                    skinChange(assets.image`bad guy stage1`, assets.image`bad guy stage2`, currentBadGuy)
+                    bad_guys_sprites[index].follow(da_Wizard, 30)
+                    badGuyState[index] = "Red"
+                    skinChange(assets.image`bad guy stage1`, assets.image`bad guy stage2`, bad_guys_sprites[index])
                     pause(500)
                 }
             }
-            if (currentBadGuy.overlapsWith(currentFireBlast)) {
-                if (currentBadGuy.image.equals(assets.image`bad guy stage2`)) {
-                    currentBadGuy.destroy()
+            if (bad_guys_sprites[index].overlapsWith(currentFireBlast)) {
+                if (badGuyState[index] == "Red") {
+                    bad_guys_sprites[index].destroy()
                     da_score += 10
                 }
             }
         }
     }
+})
+forever(function () {
+	
+})
+forever(function () {
+    da_score_bord.setPosition(scene.cameraProperty(CameraProperty.X), scene.cameraProperty(CameraProperty.Y) - 53)
+    da_score_bord.setText(convertToText(da_score))
 })
 forever(function () {
     for (let attackingBadGuy of bad_guys_sprites) {
