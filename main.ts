@@ -104,7 +104,7 @@ forever(function () {
 forever(function () {
     for (let attackingBadGuy of bad_guys_sprites) {
         if (attackingBadGuy.overlapsWith(da_Wizard)) {
-        	
+            game.reset()
         }
     }
 })
