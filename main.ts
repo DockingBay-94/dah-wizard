@@ -9,15 +9,16 @@ function skinChange (initImg: Image, targetImg: Image, who: Sprite) {
     }
 }
 function placeBadGuy (x: number, y: number) {
-    bad_guys.push(sprites.create(assets.image`bad guy stage1`, SpriteKind.Enemy))
-    bad_guys[bad_guys.length - 1].follow(da_Wizard, 10)
-    tiles.placeOnTile(bad_guys[bad_guys.length - 1], tiles.getTileLocation(x, y))
+    bad_guys_sprites.push(sprites.create(assets.image`bad guy stage1`, SpriteKind.Enemy))
+    badGuyState.push("normal")
+    bad_guys_sprites[bad_guys_sprites.length - 1].follow(da_Wizard, 10)
+    tiles.placeOnTile(bad_guys_sprites[bad_guys_sprites.length - 1], tiles.getTileLocation(x, y))
 }
 function fireBlastDirection (initImg: Image, targetImg: Image, fireImg: Image, fireVel: number) {
     if (da_Wizard.image.equals(initImg)) {
         da_Wizard.setImage(targetImg)
-        pause(200)
         fire_blasts.push(sprites.createProjectileFromSprite(fireImg, da_Wizard, fireVel, 0))
+        pause(200)
     }
 }
 function setPlayer1 () {
@@ -67,7 +68,8 @@ function placeAllBadGuys () {
 let da_score = 0
 let fire_blasts: Sprite[] = []
 let da_Wizard: Sprite = null
-let bad_guys: Sprite[] = []
+let badGuyState: string[] = []
+let bad_guys_sprites: Sprite[] = []
 let da_score_bord: TextSprite = null
 setLevel()
 setPlayer1()
@@ -77,19 +79,20 @@ forever(function () {
     da_score_bord.setText(convertToText(da_score))
 })
 forever(function () {
-    for (let currentBadGuy of bad_guys) {
-        for (let currentFireBlast of fire_blasts) {
-            if (currentBadGuy.overlapsWith(currentFireBlast)) {
-                if (currentBadGuy.image.equals(assets.image`bad guy stage1`)) {
-                    skinChange(assets.image`bad guy stage1`, assets.image`bad guy stage2`, currentBadGuy)
+    for (let currentFireBlast of fire_blasts) {
+        for (let index = 0; index <= bad_guys_sprites.length; index++) {
+            if (bad_guys_sprites[index].overlapsWith(currentFireBlast)) {
+                if (badGuyState[index] == "normal") {
+                    let list: string[] = []
                     currentFireBlast.destroy()
-                    currentBadGuy.follow(da_Wizard, 30)
+                    bad_guys_sprites[index].follow(da_Wizard, 30)
+                    list[index] = "Red"
                     pause(500)
                 }
             }
-            if (currentBadGuy.overlapsWith(currentFireBlast)) {
-                if (currentBadGuy.image.equals(assets.image`bad guy stage2`)) {
-                    currentBadGuy.destroy()
+            if (bad_guys_sprites[index].overlapsWith(currentFireBlast)) {
+                if (badGuyState[index] == "Red") {
+                    bad_guys_sprites[index].destroy()
                     da_score += 10
                 }
             }
@@ -97,9 +100,9 @@ forever(function () {
     }
 })
 forever(function () {
-    for (let attackingBadGuy of bad_guys) {
+    for (let attackingBadGuy of bad_guys_sprites) {
         if (attackingBadGuy.overlapsWith(da_Wizard)) {
-            game.reset()
+        	
         }
     }
 })
